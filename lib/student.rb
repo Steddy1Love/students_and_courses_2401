@@ -1,5 +1,8 @@
 class Student
-    attr_reader :name, :age, :scores
+    attr_reader :name, 
+                :age, 
+                :scores,
+                :average_score
 
     def initialize(student_hash)
         @name = student_hash[:name]

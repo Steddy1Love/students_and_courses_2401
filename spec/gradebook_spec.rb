@@ -22,7 +22,21 @@ RSpec.describe Gradebook do
         gradebook.add_course("Algebra III")
         gradebook.add_students(student1)
         gradebook.add_students(student2)
-        require 'pry'; binding.pry
+        
         expect(gradebook.list_all_students).to eq({"Calculus"=>student1, "Algebra III"=>student2})
+    end
+
+    it 'lists students below threshhold' do
+        gradebook = Gradebook.new("Ari", ["Calculus"])
+        student1 = Student.new({name: "Morgan", age: 21})
+        student2 = Student.new({name: "Jordan", age: 29})
+        student1.log_score(50)
+        student2.log_score(100)
+        student1.grade
+        student2.grade
+        gradebook.add_students(student1)
+        gradebook.add_students(student2)
+        
+        expect(gradebook.students_below(60)).to eq(gradebook.students_b)
     end
 end
