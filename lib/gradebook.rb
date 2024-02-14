@@ -24,11 +24,9 @@ class Gradebook
     end
 
     def students_below(threshold)
-        @students.each do |student|
-           if student.average_score < threshold
-            @students_b << student
-           end
+       student = @students.each do |student|
+            student.average_score < threshold
         end 
-        @students_b
+        @students_b.push(student)
     end
 end
